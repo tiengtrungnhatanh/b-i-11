@@ -1,336 +1,92 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bài Tập Tiếng Trung</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luyện Tiếng Trung - HSK 1-4</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="site-header">
     <div class="header-inner">
-      <a class="brand" href="#" aria-label="Về trang chủ">
-        <span class="brand-mark">中</span>
-        <span>
-          <strong>Bài Tập</strong>
-          <small>Luyện tập tiếng Trung</small>
-        </span>
-      </a>
+      <div class="logo-seal"><span class="hanzi-logo">漢</span></div>
+      <div class="header-text">
+        <h1 class="site-title">Luyện Tiếng Trung</h1>
+        <p class="site-subtitle">Học - Luyện - Thành Thạo</p>
+      </div>
     </div>
+    <div class="corner-ornament top-left"></div>
+    <div class="corner-ornament top-right"></div>
   </header>
-
-  <main class="page-shell">
-    <section class="intro-section">
-      <div>
-        <p class="eyebrow">Kho bài tập theo trình độ</p>
-        <h1>Bài Tập</h1>
-        <p class="intro-text">
-          Chọn trình độ HSK, sau đó chọn bài học để xem nội dung bài tập tương ứng.
-        </p>
+  <main class="site-main">
+    <section id="screen-home" class="screen active">
+      <div class="section-title-wrap">
+        <span class="section-badge">Bài Tập</span>
+        <h2 class="section-title">Chọn Trình Độ</h2>
+        <p class="section-desc">Bấm vào cấp độ HSK để xem danh sách bài tập</p>
       </div>
-    </section>
-
-    <section id="level-view" class="view-section" aria-labelledby="level-title">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">Trình độ</p>
-          <h2 id="level-title">Chọn cấp độ HSK</h2>
+      <div class="level-grid">
+        <div class="level-card" data-level="1">
+          <div class="level-icon"><span class="level-hanzi">初</span></div>
+          <div class="level-info">
+            <span class="level-label">HSK 1</span>
+            <span class="level-sublabel">Sơ Cấp</span>
+          </div>
+          <div class="level-count">15 bài</div>
+          <div class="card-arrow">›</div>
+        </div>
+        <div class="level-card" data-level="2">
+          <div class="level-icon"><span class="level-hanzi">初</span></div>
+          <div class="level-info">
+            <span class="level-label">HSK 2</span>
+            <span class="level-sublabel">Sơ-Trung Cấp</span>
+          </div>
+          <div class="level-count">15 bài</div>
+          <div class="card-arrow">›</div>
+        </div>
+        <div class="level-card" data-level="3">
+          <div class="level-icon"><span class="level-hanzi">中</span></div>
+          <div class="level-info">
+            <span class="level-label">HSK 3</span>
+            <span class="level-sublabel">Trung Cấp</span>
+          </div>
+          <div class="level-count">15 bài</div>
+          <div class="card-arrow">›</div>
+        </div>
+        <div class="level-card" data-level="4">
+          <div class="level-icon"><span class="level-hanzi">高</span></div>
+          <div class="level-info">
+            <span class="level-label">HSK 4</span>
+            <span class="level-sublabel">Trung-Cao Cấp</span>
+          </div>
+          <div class="level-count">15 bài</div>
+          <div class="card-arrow">›</div>
         </div>
       </div>
-      <div id="level-list" class="level-grid"></div>
-    </section>
-
-    <section id="lesson-list-view" class="view-section hidden" aria-labelledby="lesson-list-title">
-      <button class="ghost-button" type="button" data-action="back-to-levels">
-        Quay lại danh sách trình độ
-      </button>
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">Danh sách bài</p>
-          <h2 id="lesson-list-title"></h2>
-        </div>
-        <p id="lesson-list-desc" class="section-note"></p>
+      <div class="home-ornament">
+        <span>❧</span><span>学而时习之</span><span>❧</span>
       </div>
-      <div id="lesson-list" class="lesson-grid"></div>
     </section>
-
-    <section id="lesson-detail-view" class="view-section hidden" aria-labelledby="lesson-detail-title">
-      <div class="button-row">
-        <button class="ghost-button" type="button" data-action="back-to-levels">
-          Quay lại danh sách trình độ
-        </button>
-        <button class="ghost-button" type="button" data-action="back-to-lessons">
-          Quay lại danh sách bài
-        </button>
+    <section id="screen-list" class="screen">
+      <div class="screen-header">
+        <button class="btn-back" id="btn-back-home">← Quay lại danh sách trình độ</button>
+        <h2 class="screen-title" id="list-title">HSK 1</h2>
       </div>
-      <article class="lesson-card">
-        <div id="lesson-content"></div>
-      </article>
+      <div class="lesson-grid" id="lesson-grid"></div>
+    </section>
+    <section id="screen-lesson" class="screen">
+      <div class="screen-header">
+        <button class="btn-back" id="btn-back-list">← Quay lại danh sách bài</button>
+        <h2 class="screen-title" id="lesson-title">HSK 1 - Bài 1</h2>
+      </div>
+      <div class="lesson-body" id="lesson-body"></div>
     </section>
   </main>
-
-  <!--
-    KHU VỰC SỬA NỘI DUNG BÀI TẬP
-    - Muốn sửa bài nào, tìm đúng template theo dạng: hsk1-bai-1, hsk2-bai-3...
-    - Có thể viết HTML trực tiếp bên trong template: h2, p, ul, table, audio, img...
-    - Nếu đổi id trình độ trong script.js, hãy đổi id template tương ứng.
-  -->
-  <div id="lesson-templates" hidden>
-    <template id="hsk1-bai-1">
-      <h2>HSK 1 - Bài 1</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk1-bai-2">
-      <h2>HSK 1 - Bài 2</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk1-bai-3">
-      <h2>HSK 1 - Bài 3</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk1-bai-4">
-      <h2>HSK 1 - Bài 4</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk1-bai-5">
-      <h2>HSK 1 - Bài 5</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk1-bai-6">
-      <h2>HSK 1 - Bài 6</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk1-bai-7">
-      <h2>HSK 1 - Bài 7</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk1-bai-8">
-      <h2>HSK 1 - Bài 8</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk1-bai-9">
-      <h2>HSK 1 - Bài 9</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk1-bai-10">
-      <h2>HSK 1 - Bài 10</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk1-bai-11">
-      <h2>HSK 1 - Bài 11</h2>
-      <p>Bài tập tương tác được nhúng bên dưới. Nếu màn hình nhỏ, học viên có thể mở bài trong trang riêng để làm thoải mái hơn.</p>
-      <p>
-        <a class="exercise-link" href="ba%CC%80i%2011%20BT.html" target="_blank" rel="noopener">
-          Mở bài tập HSK 1 - Bài 11 toàn màn hình
-        </a>
-      </p>
-      <iframe
-        class="exercise-frame"
-        src="ba%CC%80i%2011%20BT.html"
-        title="Bài tập HSK 1 - Bài 11"
-      ></iframe>
-    </template>
-    <template id="hsk1-bai-12">
-      <h2>HSK 1 - Bài 12</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk1-bai-13">
-      <h2>HSK 1 - Bài 13</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk1-bai-14">
-      <h2>HSK 1 - Bài 14</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk1-bai-15">
-      <h2>HSK 1 - Bài 15</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-
-    <template id="hsk2-bai-1">
-      <h2>HSK 2 - Bài 1</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk2-bai-2">
-      <h2>HSK 2 - Bài 2</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk2-bai-3">
-      <h2>HSK 2 - Bài 3</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk2-bai-4">
-      <h2>HSK 2 - Bài 4</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk2-bai-5">
-      <h2>HSK 2 - Bài 5</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk2-bai-6">
-      <h2>HSK 2 - Bài 6</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk2-bai-7">
-      <h2>HSK 2 - Bài 7</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk2-bai-8">
-      <h2>HSK 2 - Bài 8</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk2-bai-9">
-      <h2>HSK 2 - Bài 9</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk2-bai-10">
-      <h2>HSK 2 - Bài 10</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk2-bai-11">
-      <h2>HSK 2 - Bài 11</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk2-bai-12">
-      <h2>HSK 2 - Bài 12</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk2-bai-13">
-      <h2>HSK 2 - Bài 13</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk2-bai-14">
-      <h2>HSK 2 - Bài 14</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk2-bai-15">
-      <h2>HSK 2 - Bài 15</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-
-    <template id="hsk3-bai-1">
-      <h2>HSK 3 - Bài 1</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk3-bai-2">
-      <h2>HSK 3 - Bài 2</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk3-bai-3">
-      <h2>HSK 3 - Bài 3</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk3-bai-4">
-      <h2>HSK 3 - Bài 4</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk3-bai-5">
-      <h2>HSK 3 - Bài 5</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk3-bai-6">
-      <h2>HSK 3 - Bài 6</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk3-bai-7">
-      <h2>HSK 3 - Bài 7</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk3-bai-8">
-      <h2>HSK 3 - Bài 8</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk3-bai-9">
-      <h2>HSK 3 - Bài 9</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk3-bai-10">
-      <h2>HSK 3 - Bài 10</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk3-bai-11">
-      <h2>HSK 3 - Bài 11</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk3-bai-12">
-      <h2>HSK 3 - Bài 12</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk3-bai-13">
-      <h2>HSK 3 - Bài 13</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk3-bai-14">
-      <h2>HSK 3 - Bài 14</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk3-bai-15">
-      <h2>HSK 3 - Bài 15</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-
-    <template id="hsk4-bai-1">
-      <h2>HSK 4 - Bài 1</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk4-bai-2">
-      <h2>HSK 4 - Bài 2</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk4-bai-3">
-      <h2>HSK 4 - Bài 3</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk4-bai-4">
-      <h2>HSK 4 - Bài 4</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk4-bai-5">
-      <h2>HSK 4 - Bài 5</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk4-bai-6">
-      <h2>HSK 4 - Bài 6</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk4-bai-7">
-      <h2>HSK 4 - Bài 7</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk4-bai-8">
-      <h2>HSK 4 - Bài 8</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk4-bai-9">
-      <h2>HSK 4 - Bài 9</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk4-bai-10">
-      <h2>HSK 4 - Bài 10</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk4-bai-11">
-      <h2>HSK 4 - Bài 11</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk4-bai-12">
-      <h2>HSK 4 - Bài 12</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk4-bai-13">
-      <h2>HSK 4 - Bài 13</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk4-bai-14">
-      <h2>HSK 4 - Bài 14</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-    <template id="hsk4-bai-15">
-      <h2>HSK 4 - Bài 15</h2>
-      <p>Phần đề bài sẽ được bổ sung tại đây.</p>
-    </template>
-  </div>
-
+  <footer class="site-footer">
+    <div class="footer-ornament">
+      <span>◈</span><span>Chúc bạn học tốt tiếng Trung</span><span>◈</span>
+    </div>
+  </footer>
   <script src="script.js"></script>
 </body>
 </html>
