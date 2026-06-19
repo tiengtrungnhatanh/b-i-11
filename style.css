@@ -661,3 +661,32 @@ h3 {
     min-height: 680px;
   }
 }
+
+
+/* ─── Bài tập nhúng (iframe) ─── */
+.exercise-link {
+  display: inline-block;
+  margin: 10px 0 14px;
+  padding: 10px 20px;
+  background: var(--red-main);
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  font-family: 'Noto Sans SC', sans-serif;
+  transition: background .2s;
+}
+.exercise-link:hover { background: var(--red-deep); }
+
+.exercise-frame {
+  width: 100%;
+  height: 760px;
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  display: block;
+  margin-top: 8px;
+}
+
+@media (max-width: 680px) {
+  .exercise-frame { height: 92vh; }
+}
