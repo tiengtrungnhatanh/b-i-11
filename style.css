@@ -1,4 +1,284 @@
+/* ==========================================================
+   STYLE.CSS – Giao diện Trung Hoa cho trang luyện tiếng Trung
+   Màu chủ đạo: đỏ truyền thống + vàng + nền kem/ngà
+   ========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+
 :root {
+  --red-deep:    #8B1A1A;
+  --red-main:    #C0392B;
+  --red-bright:  #E74C3C;
+  --red-light:   #F5D5D0;
+  --gold:        #C9A84C;
+  --gold-light:  #F0D78B;
+  --ivory:       #FDF6EC;
+  --ivory-dark:  #F3E8D0;
+  --brown:       #5A3A1A;
+  --ink:         #2C1A0E;
+  --shadow:      rgba(139,26,26,0.18);
+  --shadow-gold: rgba(201,168,76,0.3);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans SC', 'Segoe UI', sans-serif;
+  background-color: var(--ivory);
+  color: var(--brown);
+  min-height: 100vh;
+  background-image: radial-gradient(circle, rgba(201,168,76,0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.site-header {
+  position: relative;
+  background: linear-gradient(135deg, var(--red-deep) 0%, var(--red-main) 60%, #7B1111 100%);
+  color: #fff;
+  padding: 28px 24px 22px;
+  text-align: center;
+  overflow: hidden;
+  border-bottom: 4px solid var(--gold);
+  box-shadow: 0 4px 18px var(--shadow);
+}
+.site-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.04) 0, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 20px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.04) 0, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 20px);
+  pointer-events: none;
+}
+.header-inner {
+  position: relative; z-index: 1;
+  display: flex; align-items: center; justify-content: center; gap: 18px;
+}
+.logo-seal {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  border: 2px solid var(--gold);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  box-shadow: 0 0 0 4px rgba(201,168,76,0.25);
+}
+.hanzi-logo {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 32px; font-weight: 700;
+  color: var(--gold-light);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+}
+.site-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: clamp(22px, 5vw, 34px);
+  font-weight: 700; color: #fff;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+.site-subtitle {
+  font-size: 13px; color: var(--gold-light);
+  letter-spacing: 3px; margin-top: 4px; font-weight: 300;
+}
+.corner-ornament {
+  position: absolute; top: 8px;
+  width: 40px; height: 40px;
+  border: 2px solid rgba(201,168,76,0.5);
+  pointer-events: none;
+}
+.corner-ornament.top-left  { left: 12px;  border-right: none; border-bottom: none; }
+.corner-ornament.top-right { right: 12px; border-left: none;  border-bottom: none; }
+
+.site-main { max-width: 880px; margin: 0 auto; padding: 32px 16px 60px; }
+
+.screen { display: none; animation: fadeIn 0.35s ease; }
+.screen.active { display: block; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.section-title-wrap { text-align: center; margin-bottom: 36px; }
+.section-badge {
+  display: inline-block; background: var(--red-main); color: #fff;
+  font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  padding: 4px 14px; border-radius: 20px; margin-bottom: 10px;
+}
+.section-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: clamp(24px, 5vw, 38px);
+  color: var(--red-deep); letter-spacing: 2px; margin-bottom: 8px;
+  position: relative; display: inline-block;
+}
+.section-title::after {
+  content: ''; display: block; width: 60%; height: 3px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  margin: 8px auto 0; border-radius: 2px;
+}
+.section-desc { color: #7A5C3A; font-size: 14px; margin-top: 6px; letter-spacing: 0.5px; }
+
+.level-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+.level-card {
+  position: relative; background: var(--ivory-dark);
+  border: 1.5px solid var(--gold); border-radius: 12px;
+  padding: 24px 20px 20px; cursor: pointer;
+  transition: transform 0.22s, box-shadow 0.22s, background 0.22s;
+  overflow: hidden; display: flex; flex-direction: column;
+  align-items: center; gap: 10px; text-align: center;
+}
+.level-card::before {
+  content: ''; position: absolute; top: 0; left: 0;
+  width: 30px; height: 30px;
+  border-top: 3px solid var(--gold); border-left: 3px solid var(--gold);
+  border-radius: 10px 0 0 0; opacity: 0.6;
+}
+.level-card::after {
+  content: ''; position: absolute; bottom: 0; right: 0;
+  width: 30px; height: 30px;
+  border-bottom: 3px solid var(--gold); border-right: 3px solid var(--gold);
+  border-radius: 0 0 10px 0; opacity: 0.6;
+}
+.level-card:hover, .level-card:focus {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 28px var(--shadow), 0 0 0 2px var(--red-main);
+  background: #FFF5EC; outline: none;
+}
+.level-icon {
+  width: 70px; height: 70px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--red-deep), var(--red-main));
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 14px var(--shadow), inset 0 1px 0 rgba(255,255,255,0.2);
+}
+.level-hanzi {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 30px; color: var(--gold-light); font-weight: 700;
+}
+.level-label {
+  display: block; font-size: 20px; font-weight: 700;
+  color: var(--red-deep); font-family: 'Noto Serif SC', serif; letter-spacing: 1px;
+}
+.level-sublabel { display: block; font-size: 12px; color: #8A6A50; margin-top: 2px; }
+.level-count {
+  font-size: 12px; color: #fff; background: var(--red-main);
+  padding: 2px 12px; border-radius: 20px; font-weight: 500;
+}
+.card-arrow {
+  position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+  font-size: 22px; color: var(--gold); font-weight: 700; transition: right 0.2s;
+}
+.level-card:hover .card-arrow { right: 10px; }
+.home-ornament {
+  text-align: center; margin-top: 50px; color: var(--gold);
+  font-size: 15px; letter-spacing: 4px;
+  font-family: 'Noto Serif SC', serif;
+  display: flex; align-items: center; justify-content: center; gap: 14px; opacity: 0.7;
+}
+
+.screen-header {
+  margin-bottom: 28px; border-bottom: 2px solid var(--gold);
+  padding-bottom: 16px; display: flex; flex-direction: column; gap: 10px;
+}
+.btn-back {
+  background: none; border: 1.5px solid var(--red-main); color: var(--red-main);
+  font-size: 13px; font-family: 'Noto Sans SC', sans-serif;
+  padding: 7px 18px; border-radius: 8px; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 6px;
+  transition: background 0.18s, color 0.18s; width: fit-content; font-weight: 500;
+}
+.btn-back:hover { background: var(--red-main); color: #fff; }
+.screen-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: clamp(20px, 5vw, 32px); color: var(--red-deep); letter-spacing: 1px;
+}
+
+.lesson-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 14px;
+}
+.lesson-card {
+  background: var(--ivory-dark); border: 1.5px solid rgba(201,168,76,0.5);
+  border-radius: 10px; padding: 18px 12px; text-align: center;
+  cursor: pointer; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  position: relative; overflow: hidden;
+}
+.lesson-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(to right, var(--red-deep), var(--gold), var(--red-deep));
+  opacity: 0; transition: opacity 0.2s;
+}
+.lesson-card:hover::before { opacity: 1; }
+.lesson-card:hover {
+  transform: translateY(-4px); box-shadow: 0 8px 22px var(--shadow);
+  border-color: var(--red-main);
+}
+.lesson-number {
+  font-size: 22px; font-weight: 700; color: var(--red-main);
+  font-family: 'Noto Serif SC', serif; display: block;
+}
+.lesson-label { font-size: 12px; color: #8A6A50; margin-top: 4px; display: block; }
+
+.lesson-body {
+  background: #fff; border: 1.5px solid rgba(201,168,76,0.4);
+  border-radius: 14px; padding: 32px 28px;
+  box-shadow: 0 4px 20px var(--shadow);
+  border-left: 5px solid var(--red-main);
+  min-height: 300px; line-height: 1.9;
+}
+.lesson-body h2 {
+  font-family: 'Noto Serif SC', serif; color: var(--red-deep);
+  font-size: 22px; margin-bottom: 16px; padding-bottom: 10px;
+  border-bottom: 1px solid var(--gold-light);
+}
+.lesson-body h3 { color: var(--red-main); font-size: 17px; margin: 20px 0 8px; }
+.lesson-body p { color: var(--brown); font-size: 15px; margin-bottom: 12px; }
+.lesson-body ul, .lesson-body ol { padding-left: 22px; margin-bottom: 12px; }
+.lesson-body li { color: var(--brown); font-size: 15px; margin-bottom: 6px; }
+.lesson-body table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+.lesson-body th { background: var(--red-deep); color: #fff; padding: 9px 12px; text-align: left; }
+.lesson-body td { padding: 8px 12px; border-bottom: 1px solid var(--ivory-dark); }
+.lesson-body tr:nth-child(even) td { background: var(--ivory); }
+
+.placeholder-block {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 48px 24px; gap: 16px; color: #B09070; text-align: center;
+}
+.placeholder-hanzi {
+  font-family: 'Noto Serif SC', serif; font-size: 56px;
+  color: rgba(192, 57, 43, 0.15); font-weight: 700;
+}
+.placeholder-text { font-size: 14px; line-height: 1.7; }
+.placeholder-hint {
+  font-size: 12px; background: var(--ivory);
+  border: 1px dashed var(--gold); padding: 8px 16px;
+  border-radius: 8px; color: #9A7A5A;
+}
+
+.site-footer { background: var(--red-deep); border-top: 3px solid var(--gold); padding: 18px 16px; text-align: center; }
+.footer-ornament {
+  color: var(--gold-light); font-size: 13px; letter-spacing: 3px;
+  font-family: 'Noto Serif SC', serif;
+  display: flex; align-items: center; justify-content: center; gap: 14px; opacity: 0.85;
+}
+
+@media (max-width: 680px) {
+  .header-inner { flex-direction: column; gap: 10px; }
+  .logo-seal { width: 52px; height: 52px; }
+  .hanzi-logo { font-size: 26px; }
+  .level-grid { grid-template-columns: 1fr 1fr; }
+  .lesson-grid { grid-template-columns: repeat(3, 1fr); }
+  .lesson-body { padding: 22px 18px; }
+}
+@media (max-width: 400px) {
+  .level-grid { grid-template-columns: 1fr; }
+  .lesson-grid { grid-template-columns: repeat(2, 1fr); }
+  .lesson-body { padding: 18px 14px; border-left-width: 3px; }
+  .card-arrow { display: none; }
+}:root {
   --primary-color: #0f3d57;
   --secondary-color: #176b87;
   --background-color: #f4f8fb;
