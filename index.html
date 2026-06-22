@@ -3,52 +3,118 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Luyện Tiếng Trung - HSK 1-4</title>
-  <link rel="stylesheet" href="style.css?v=4" />
+  <title>NHATANH CHINESE – Luyện Tiếng Trung HSK 1-4</title>
+  <link rel="stylesheet" href="style.css?v=5" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-inner">
-      <div class="logo-seal"><span class="hanzi-logo">漢</span></div>
-      <div class="header-text">
-        <h1 class="site-title">Luyện Tiếng Trung</h1>
-        <p class="site-subtitle">Học - Luyện - Thành Thạo</p>
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress"><span></span></div>
+
+  <!-- ===== TOPBAR ===== -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="topbar-left">
+        <a class="topbar-item" href="tel:0817716296">
+          <svg class="topbar-icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          0817 716 296
+        </a>
+        <a class="topbar-item" href="https://tiengtrungnhatanh.github.io" target="_blank">
+          <svg class="topbar-icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          tiengtrungnhatanh.github.io
+        </a>
       </div>
+      <div class="topbar-right">
+        <a class="topbar-social" href="https://www.facebook.com/tiengtrungnhatanh" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+        <a class="topbar-social" href="https://zalo.me/0393716744" target="_blank" rel="noopener" aria-label="Zalo">Z</a>
+        <a class="topbar-social" href="https://www.youtube.com/@anhnhatnguyen16274" target="_blank" rel="noopener" aria-label="YouTube">▶</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== HEADER / NAVBAR ===== -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <div class="logo-seal">
+        <span class="hanzi-logo">漢</span>
+        <div class="header-text">
+          <span class="site-title">NHATANH CHINESE</span>
+          <span class="site-subtitle">汉语不太难</span>
+        </div>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="https://tiengtrungnhatanh.github.io" target="_blank">Trang chủ</a></li>
+        <li><a href="#" onclick="showScreen('screen-home');return false;">Chọn trình độ</a></li>
+      </ul>
+
+      <a class="nav-cta" href="https://zalo.me/0393716744" target="_blank">Liên hệ</a>
     </div>
     <div class="corner-ornament top-left"></div>
     <div class="corner-ornament top-right"></div>
   </header>
+
+  <!-- ===== MAIN CONTENT (SPA: 3 màn hình) ===== -->
   <main class="site-main">
+
+    <!-- MÀN HÌNH 1: Trang chủ – chọn trình độ -->
     <section id="screen-home" class="screen active">
       <div class="section-title-wrap">
         <span class="section-badge">Bài Tập</span>
         <h2 class="section-title">Chọn Trình Độ</h2>
         <p class="section-desc">Bấm vào cấp độ HSK để xem danh sách bài tập</p>
       </div>
+
       <div class="level-grid">
         <div class="level-card" data-level="1">
           <div class="level-icon"><span class="level-hanzi">初</span></div>
-          <div class="level-info"><span class="level-label">HSK 1</span><span class="level-sublabel">Sơ Cấp</span></div>
-          <div class="level-count">15 bài</div><div class="card-arrow">›</div>
+          <div class="level-info">
+            <span class="level-label">HSK 1</span>
+            <span class="level-sublabel">Sơ Cấp</span>
+          </div>
+          <div class="level-count">15 bài</div>
+          <div class="card-arrow">›</div>
         </div>
+
         <div class="level-card" data-level="2">
           <div class="level-icon"><span class="level-hanzi">初</span></div>
-          <div class="level-info"><span class="level-label">HSK 2</span><span class="level-sublabel">Sơ-Trung Cấp</span></div>
-          <div class="level-count">15 bài</div><div class="card-arrow">›</div>
+          <div class="level-info">
+            <span class="level-label">HSK 2</span>
+            <span class="level-sublabel">Sơ-Trung Cấp</span>
+          </div>
+          <div class="level-count">15 bài</div>
+          <div class="card-arrow">›</div>
         </div>
+
         <div class="level-card" data-level="3">
           <div class="level-icon"><span class="level-hanzi">中</span></div>
-          <div class="level-info"><span class="level-label">HSK 3</span><span class="level-sublabel">Trung Cấp</span></div>
-          <div class="level-count">15 bài</div><div class="card-arrow">›</div>
+          <div class="level-info">
+            <span class="level-label">HSK 3</span>
+            <span class="level-sublabel">Trung Cấp</span>
+          </div>
+          <div class="level-count">15 bài</div>
+          <div class="card-arrow">›</div>
         </div>
+
         <div class="level-card" data-level="4">
           <div class="level-icon"><span class="level-hanzi">高</span></div>
-          <div class="level-info"><span class="level-label">HSK 4</span><span class="level-sublabel">Trung-Cao Cấp</span></div>
-          <div class="level-count">15 bài</div><div class="card-arrow">›</div>
+          <div class="level-info">
+            <span class="level-label">HSK 4</span>
+            <span class="level-sublabel">Trung-Cao Cấp</span>
+          </div>
+          <div class="level-count">15 bài</div>
+          <div class="card-arrow">›</div>
         </div>
       </div>
-      <div class="home-ornament"><span>❧</span><span>学而时习之</span><span>❧</span></div>
+
+      <div class="home-ornament">
+        <span>❧</span>
+        <span>学而时习之</span>
+        <span>❧</span>
+      </div>
     </section>
+
+    <!-- MÀN HÌNH 2: Danh sách bài -->
     <section id="screen-list" class="screen">
       <div class="screen-header">
         <button class="btn-back" id="btn-back-home">← Quay lại danh sách trình độ</button>
@@ -56,17 +122,44 @@
       </div>
       <div class="lesson-grid" id="lesson-grid"></div>
     </section>
+
+    <!-- MÀN HÌNH 3: Nội dung bài tập -->
     <section id="screen-lesson" class="screen">
       <div class="screen-header">
         <button class="btn-back" id="btn-back-list">← Quay lại danh sách bài</button>
-        <h2 class="screen-title" id="lesson-title">HSK 1 - Bài 1</h2>
+        <h2 class="screen-title" id="lesson-title">HSK 1 – Bài 1</h2>
       </div>
       <div class="lesson-body" id="lesson-body"></div>
     </section>
+
   </main>
+
+  <!-- ===== FOOTER ===== -->
   <footer class="site-footer">
-    <div class="footer-ornament"><span>◈</span><span>Chúc bạn học tốt tiếng Trung</span><span>◈</span></div>
+    <div class="footer-ornament">
+      <span>◈</span>
+      <span>Chúc bạn học tốt tiếng Trung – NHATANH CHINESE</span>
+      <span>◈</span>
+    </div>
   </footer>
+
   <script src="script.js?v=8"></script>
+  <script>
+    // Scroll progress bar
+    window.addEventListener('scroll', () => {
+      const el = document.querySelector('.scroll-progress span');
+      if (!el) return;
+      const h = document.documentElement;
+      const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+      el.style.setProperty('--scroll-progress', pct + '%');
+      el.style.width = pct + '%';
+    }, { passive: true });
+
+    // Sticky header shadow
+    const hdr = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      hdr.classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
+  </script>
 </body>
 </html>
